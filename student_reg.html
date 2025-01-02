@@ -1,0 +1,46 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+<style>
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+
+
+<h1>Student Registration</h1>
+<center>
+
+
+<form method="POST" action="student_reg" enctype="multipart/form-data">
+    <table width="34%">
+    <p><tr><td>Registration No.:<input type="text" name="T1" id="txt1"></td></tr></p>
+    <p><tr><td>Name:<input type="text" name="T2" id="txt2"></td></tr></p>
+    <p><tr><td>Address:<input type="text" name="T3" id="txt3"></td></tr></p>
+    <p><tr><td>Contact:<input type="text" name="T4" id="txt4"></td></tr></p>
+    <p><tr><td>Email:<input type="text" name="T5" id="txt5"></td></tr></p>
+    <p><tr><td><button type="submit" id="bt1">REGISTER</button></td></tr></p>
+    </table>
+</form>
+{% if msg %}
+    <h3>{{ msg }}</h3>
+{% endif %}
+</center>
+<button><a href="show_student">Student Profiles</a> </button>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+
+<style>
+    p{
+    color:black;
+    }
+    a{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+	}
+a:hover{
+    background-color:#6F9;
+	cursor:pointer;
+
+}
+</style>
+<h1>Admin Profile</h1>
+
+
+
+{% if kota %}
+{%for d in kota%}
+<table width="34%">
+
+
+        <img alt="No Photo" src="../static/photos/{{d[5]}}" width="200" height="200"/></td>
+
+
+        <h3>{{d[0]}}</h3>
+        <p></p>Address:{{d[1]}}</p>
+        <p>Contact No.:{{d[2]}}</p>
+        <p>Email:{{d[3]}}</p>
+
+</table>
+{% endfor %}
+
+{% elif msg %}
+ <h3>{{msg}}</h3>
+{% endif %}
+
+
+{% endblock %}

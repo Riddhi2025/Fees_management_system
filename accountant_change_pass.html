@@ -1,0 +1,47 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+body,p{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<center>
+<h1>Accountant Change Password</h1>
+
+<form method="post" action="accountant_change_pass">
+    <p>Old Password:<input type="password" name="T1"/></p>
+    <p>New Password:<input type="password" name="T2"/></p>
+    <p>Conform Password:<input type="password" name="T3"/></p>
+    <input type="submit" name="B1" value="Change"/>
+</form>
+</center>
+{% if msg %}
+<h3> {{msg}}</h3>
+{% endif %}
+
+<button><a href="accountant_home"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<center>
+<h1>Edit Student Details</h1>
+
+{% if kota %}
+
+<form method="post" action="edit_student1">
+    <p>Registration No.<input type="text" name="T1" value="{{kota[0]}}"/></p>
+    <p>Name<input type="text" name="T2" value="{{kota[1]}}"/></p>
+    <p>Address<input type="text" name="T3" value="{{kota[2]}}"/></p>
+    <p>Contact<input type="text" name="T4" value="{{kota[3]}}"/></p>
+    <p>Email<input type="text" name="T5" value="{{kota[4]}}"/></p>
+    <p><input type="submit" name="B1" value="Edit"/></p>
+</form>
+
+<h3>
+    <a href="show_student">Back</a>
+</h3>
+
+{% elif msg %}
+  <h3>{{msg}}</h3>
+{% endif %}
+</center>
+    <button><a href="show_student"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

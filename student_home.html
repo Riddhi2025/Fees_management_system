@@ -1,0 +1,196 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+<style>
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+
+<h1>Student Dashboard</h1>
+
+
+{% if kota %}
+
+<table border="1" style="border-collapse:collapse" width="50%">
+
+    <tr>
+        <th>Name</th>
+        <th>Regno</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    {% for d in kota %}
+
+    <tr>
+       <td>{{ d[1] }}</td>
+        <td>{{ d[0] }}</td>
+        <td>{{ d[2] }}</td>
+       <td>{{ d[3] }}</td>
+       <td>{{ d[4] }}</td>
+        <td>
+              <form method="post" action="edit_student">
+                <input type="hidden" name="H1" value="{{d[0]}}"/>
+                <input type="submit" name="B1" value="Edit"/>
+            </form>
+        </td>
+        <td>
+            {% if photo=='no' %}
+
+          <form method="post" action="student_home" enctype="multipart/form-data">
+             File<input type="file" name="F1"/>
+                 <input type="submit" name="B1" value="UPLOAD"/>
+          </form>
+              {% if result %}
+                <h3>{{result}}</h3>
+              {% endif %}
+
+          {% else %}
+          <img src="../static/photos/{{photo}}" width="100" height="100"/>
+          <p><a href="student_change_photo">Change Photo</a></p>
+
+            {% endif %}
+</td>
+
+
+</table>
+    {% endfor %}
+{% endif %}
+<br/>
+<hr/>
+
+<h3>Course Details</h3>
+{% if vgt %}
+    <table border="1" style="border-collapse:collapse" width="50%">
+        <tr>
+            <th>CID</th>
+            <th>Regno</th>
+            <th>Course</th>
+            <th>Fee</th>
+            <th>Discount</th>
+            <th>Joining</th>
+            <th>Remark</th>
+            <th>Paid</th>
+            <th>Due</th>
+            <th>
+                    <a href="student_course" ><img src="../static/photos/add.svg">ADD</a>
+
+            </th>
+        </tr>
+
+
+    {% for d in vgt %}
+
+    <tr>
+        <td>{{ d[0] }}</td>
+        <td>{{ d[1] }}</td>
+        <td>{{ d[2] }}</td>
+        <td>{{ d[3] }}</td>
+        <td>{{ d[4] }}</td>
+        <td>{{ d[5] }}</td>
+        <td>{{ d[6] }}</td>
+        <td>{{ d[7] }}</td>
+        <td>{{ d[8] }}</td>
+        <td>
+            <form method="post" action="edit_course">
+                <input type="hidden" name="H1" value="{{d[0]}}"/>
+                <input type="submit" name="B1" value="Edit"/>
+            </form>
+
+             <form method="post" action="delete_course">
+                <input type="hidden" name="H1" value="{{d[0]}}"/>
+                <input type="submit" name="B1" value="delete"/>
+            </form>
+
+
+        </td>
+    </tr>
+
+{% endfor %}
+
+        </table>
+
+        <h3>Total Fee : {{ fees[0] }}</h3>
+        <h3>Discount : {{ fees[1]}} </h3>
+        <h3>Fee Paid : {{ fees[2] }}</h3>
+        <h3>Total Due : {{ fees[3] }}</h3>
+
+{% endif %}
+<br/>
+<hr/>
+<h2> Installments</h2>
+
+{% if punit %}
+
+
+<table border="1" style="border-collapse:collapse" width="50%">
+
+    <tr>
+        <th>T_no</th>
+        <th>Regno.</th>
+        <th>Course_Id</th>
+        <th>Amount</th>
+        <th>Deposit Date</th>
+        <th>Remark</th>
+        <th>
+             <a href="student_fee" ><img src="../static/photos/wallet2.svg">Installments</a>
+
+        </th>
+
+    </tr>
+
+    {% for fee in punit %}
+
+    <tr>
+        <td>{{fee[0]}}</td>
+        <td>{{fee[1]}}</td>
+        <td>{{fee[2]}}</td>
+        <td>{{fee[3]}}</td>
+        <td>{{fee[4]}}</td>
+        <td>{{fee[5]}}</td>
+
+
+        <td>
+            <form method="post" action="edit_fee">
+                <input type="hidden" name="H1" value="{{fee[0]}}" />
+                <input type="submit" name="B1" value="Edit" />
+            </form>
+             <form method="post" action="delete_fee">
+                <input type="hidden" name="H1" value="{{fee[0]}}"/>
+                <input type="submit" name="B1" value="delete"/>
+            </form>
+
+        </td>
+    </tr>
+
+    {% endfor %}
+       </table>
+    {% endif %}
+
+
+{% if msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+      <button><a href="show_student"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

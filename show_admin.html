@@ -1,0 +1,46 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+<html>
+<head>
+<style>
+    p{
+    color:black;
+    }
+    button{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+	}
+button:hover{
+    background-color:#6F9;
+	cursor:pointer;
+
+}
+</style>
+</head>
+<body>
+<div>
+
+
+{% if vgt %}
+    {% for d in vgt %}
+        <p>
+            Name:{{d[0]}}<br/>
+            Address:{{d[1]}}<br/>
+            contact:{{d[2]}}<br/>
+            email:{{d[3]}}
+        </p>
+    {% endfor %}
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+</div>
+</body>
+</html>
+        <button><a href="admin_home"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

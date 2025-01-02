@@ -1,0 +1,37 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<h1>Authorization Error</h1>
+
+<h2>You are not Authorized user</h2>
+
+<button><a href="login">BACK</a></button>
+{% endblock %}

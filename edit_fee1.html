@@ -1,0 +1,41 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<center>
+<h1>Edit Student's Fee</h1>
+
+{% if msg %}
+  <h4>{{msg}}</h4>
+{% endif %}
+
+</center>
+    <button><a href="show_student"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

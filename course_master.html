@@ -1,0 +1,59 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+<style xmlns="http://www.w3.org/1999/html">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<div>
+    <center>
+<h1>Course Registration</h1>
+<form method="POST" action="course_master" enctype="multipart/form-data">
+    <table width="34%">
+    <p><tr><td>Course:<select id="txt1" name="T1">
+                <option></option>
+                <option>C Programming</option>
+                <option>CPP</option>
+                <option>JAVA</option>
+                <option>Web Designing</option>
+                <option>PYTHON</option>
+                <option>DSA</option>
+                <option>SOFTWARE DEVELOPMENT</option>
+    </select></td></tr></p>
+    <p><tr><td>Fee:<input type="text" name="T2" id="txt2"></td></tr></p>
+    <p><tr><td>Duration:<input type="text" name="T3" id="txt3"></td></tr></p>
+    <p><tr><td>Remarks:<input type="text" name="T4" id="txt4"></td></tr></p>
+    <p><tr><td><input type="submit" name="B1" id="btn1" value="register"></td></tr></p>
+    </table>
+</form>
+        </center>
+</div>
+{% if msg %}
+    <h3>{{ msg }}</h3>
+{% endif %}
+
+<button><a href="student_home"><img src="../static/photos/back.svg">BACK</a> </button>
+{% endblock %}

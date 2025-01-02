@@ -1,0 +1,52 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<center>
+<h1>Edit Course Details</h1>
+
+{% if kota %}
+
+<form method="post" action="edit_course_master1">
+    <table width="34%">
+    <p><tr><td>Course<input type="text" name="T1" value="{{kota[0]}}"/></td></tr></p>
+    <p><tr><td>Fee<input type="text" name="T2" value="{{kota[1]}}"/><tr><td></p>
+    <p><tr><td>Duration<input type="text" name="T3" value="{{kota[2]}}"/><tr><td></p>
+    <p><tr><td>Remark<input type="text" name="T4" value="{{kota[3]}}"/><tr><td></p>
+    <p><tr><td><input type="submit" name="B1" value="Edit"/></p>
+    </table>
+</form>
+
+{% elif msg %}
+  <h4>{{msg}}</h4>
+{% endif %}
+</center>
+    <button><a href="show_student"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

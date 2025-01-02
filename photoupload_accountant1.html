@@ -1,0 +1,27 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+<style>
+input{
+
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+<h1>Photo Upload</h1>
+<h3>{{ result }}</h3>
+<p><a href="accountant_home">Accountant block</a></p>
+{% endblock %}

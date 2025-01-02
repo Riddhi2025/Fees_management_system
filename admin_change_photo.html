@@ -1,0 +1,36 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+
+<style xmlns="http://www.w3.org/1999/html">
+
+
+input{
+
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+
+<h1>Photo Delete</h1>
+{% if data=='success' %}
+<h3>Photo Delete</h3>
+{% else %}
+<h3>Error: Can't Delete Photo </h3>
+{% endif %}
+
+<p><a href="admin_pro">Continue</a> </p>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+<html>
+<head>
+<style>
+    p{
+    color:black;
+    }
+    input{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+    }
+    button,a{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+	}
+button:hover{
+    background-color:#6F9;
+	cursor:pointer;
+
+}
+</style>
+</head>
+<body>
+<div>
+
+<h1>Show Courses Details</h1>
+
+{% if kota %}
+
+<table border="1" style="border-collapse:collapse" width="50%">
+    {% for couid in kota %}
+    <tr>
+        <td>
+            <h3>{{couid[0]}}</h3>
+
+            <p><b>Fee</b>:{{couid[1]}}</p>
+            <p><b>Duration</b>:{{couid[2]}}</p>
+            <p><b>Remarks</b>:{{couid[3]}}</p>
+
+        </td>
+
+        <td>
+            <form method="post" action="edit_course_master">
+                <input type="hidden" name="H1" value="{{couid[0]}}"/>
+                <input type="submit" name="B1" value="Edit"/>
+            </form>
+            <!--
+             <form method="post" action="delete_course_master">
+                <input type="hidden" name="H1" value="{{couid[0]}}"/>
+                <input type="submit" name="B1" value="Delete"/>
+            </form>-->
+
+
+
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+        </div>
+</body>
+</html>
+        <button><a href="admin_home"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+<style>
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+
+<h1>Show Student Details</h1>
+
+{% if kota %}
+
+<table border="1" cellspacing="0">
+    <tr>
+        <th>Reno</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>&nbsp;</th>
+    </tr>
+    {% for reg in kota %}
+    <tr>
+        <td>{{reg[0]}}</td>
+        <td>{{reg[1]}}</td>
+        <td>{{reg[2]}}</td>
+        <td>{{reg[3]}}</td>
+        <td>{{reg[4]}}</td>
+
+
+        <td>
+            <form method="post" action="student_home">
+                <input type="hidden" name="H1" value="{{reg[0]}}"/>
+                <input type="submit" name="B1" value="View"/>
+            </form>
+
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+      <button><a href="accountant_home"><img src="../static/photos/back.svg">BACK</a></button>
+{% endblock %}

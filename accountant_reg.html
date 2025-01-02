@@ -1,0 +1,265 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+<html>
+<head>
+    <style>
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+
+	}
+
+
+input{
+	margin:10px;
+	border-radius:5px;
+	box-sizing:border-box;
+	background-color:#6FC;
+	}
+
+button,a{
+	box-sizing:border-box;
+     border-radius:10px;
+	 margin:8px;
+	 font-size:20px;
+	 background-color:#0CF;
+	 color:#FFF;
+	}
+button:hover{
+	background-color:#30F;
+
+}
+</style>
+</head>
+<body>
+<div>
+    <center>
+<h1>Accountant Registration</h1>
+<form class="s" onSubmit="return a()" method="POST" action="accountant_reg">
+    <table width="34%">
+    <p><tr><td>Employee No.:<input type="text" name="T1" id="txt1"><br><span  id="sp1" style="color:#F30 "></span></td></tr></p>
+    <p><tr><td>Name:<input type="text" name="T2" id="txt2"><span id="sp2"></span></td></tr></p>
+    <p><tr><td>Designation:<input type="text" name="T3" id="txt3"><span id="sp3"></span></td></tr></p>
+    <p><tr><td>Contact No.:<input type="text" name="T4" id="txt4"><span id="sp4"></span></td></tr></p>
+        <p><tr><td>Email:<input type="text" name="T5" id="txt5"><span id="sp5"></span></td></tr></p>
+    <p><tr><td>Password:<input type="text" name="T6" id="txt6"><span id="sp6"></span></td></tr></p>
+    <p><tr><td>Confirm password:<input type="text" name="T7" id="txt7"><span id="sp7"></span></td></tr></p>
+    <p><tr><td><button type="submit" id="bt1">REGISTER</button></td></tr></p>
+    </table>
+</form>
+    </center>
+{% if msg %}
+ <h3>{{msg}}</h3>
+{% endif %}
+</div>
+<script>
+
+function a()
+{
+	var t1,t2,t3,t4,t5,t6,,t7,e1,e2,e3,e4,e5,e6,e7;
+	t1=document.getElementById("txt1");
+	t2=document.getElementById("txt2");
+	t3=document.getElementById("txt3");
+	t4=document.getElementById("txt4");
+	t5=document.getElementById("txt5");
+	t6=document.getElementById("txt6");
+	t6=document.getElementById("txt7");
+	e1=document.getElementById("sp1");
+	e2=document.getElementById("sp2");
+	e3=document.getElementById("sp3");
+	e4=document.getElementById("sp4");
+	e5=document.getElementById("sp5");
+	e6=document.getElementById("sp6");
+	e7=document.getElementById("sp7");
+
+
+	var a,b,c,d,e,f,g;
+	a=t1.value;
+	b=t2.value;
+	c=t3.value;
+	d=t4.value;
+	e=t5.value;
+	f=t6.value;
+	g=t7.value;
+
+	e1.innerHTML="";
+	e2.innerHTML="";
+	e3.innerHTML="";
+	e4.innerHTML="";
+	e5.innerHTML="";
+	e6.innerHTML="";
+	e7.innerHtml="";
+
+	if(a==null || a=="")
+	{
+		e1.innerHTML="Enter employee no. ";
+		t1.focus();
+		return false;
+	}
+	else if(sharma(a)==false)
+	{
+		e1.innerHTML="enter only digit";
+		t1.select();
+		return false;
+	}
+	if(b==null || b=="")
+	{
+		e2.innerHTML="Enter Name";
+		t2.focus();
+		return false;
+	}
+	else if(punit(b)==false)
+	{
+		e2.innerHTML="enter only alphabet";
+		t2.select();
+		return false;
+	}
+	if(c==null || c=="")
+	{
+		e3.innerHTML="Enter Designation";
+		t3.focus();
+		return false;
+	}
+	else if(punit(c)==false)
+	{
+		e4.innerHTML="enter only alphabet";
+		t4.select();
+		return false;
+	}
+
+	if(d==null || d=="")
+	{
+		e4.innerHTML="Enter Contact";
+		t4.focus();
+		return false;
+	}
+	else if(sharma(d)==false)
+	{
+		e4.innerHTML="enter only digit";
+		t4.select();
+		return false;
+	}
+	else if(anas(d,6000000000,9999999999)==false)
+	{
+		e4.innerHTML="enter valid contact";
+		t4.select();
+		return false;
+	}
+	if(e==null || e=="")
+	{
+		e5.innerHTML="Enter Email";
+		t5.focus();
+		return false;
+	}
+	else if(checkEmail(e)==false)
+	{
+		e5.innerHTML="enter valid email";
+		t5.select();
+		return false;
+	}
+
+
+	if(f==null || f=="")
+	{
+		e6.innerHTML="Enter Password";
+		t6.focus();
+		return false;
+	}
+	if(g==null || g=="")
+	{
+		e7.innerHTML="Enter Confirm Password";
+		t7.focus();
+		return false;
+	}
+	else if(sj(f,g)==false)
+	{
+		e6.innerHTML="password does not match";
+		t6.value="";
+		t7.value="";
+		t6.focus();
+		return false;
+	}
+}
+function punit(str)
+{
+	var f=true;
+	for(var i=0;i<str.length;i++)
+	{
+		var ch=str.charAt(i);
+		if(ch>='a' && ch<='z' || ch>='A' && ch<='Z' || ch==' ')
+		{
+			f=true;
+		}
+		else
+		{
+			f=false;
+			break;
+		}
+	}
+	return f;
+}
+function sharma(str)
+{
+	var f=true;
+	for(var i=0;i<str.length;i++)
+	{
+		var ch=str.charAt(i);
+		if(ch>='0' && ch<='9')
+		{
+			f=true;
+		}
+		else
+		{
+			f=false;
+			break;
+		}
+
+	}
+	return f;
+}
+function anas(v,mn,mx)
+{
+	if(v<mn || v>mx)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+function sj(p1,p2)
+{
+	if(p1==p2)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function checkEmail(ch)
+{
+
+	if(/^\w*[@]\w{5}[.]com$/.test(ch))
+	{
+	 return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+</script>
+</body>
+</html>
+<button><a href="admin_home"><img src="../static/photos/back.svg">BACK</a> </button>
+{% endblock %}
+
+
+
+
+

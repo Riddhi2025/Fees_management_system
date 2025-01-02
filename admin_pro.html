@@ -1,0 +1,57 @@
+{% extends 'd_admin.html' %}
+{% block m1 %}
+
+<style>
+    p{
+    color:black;
+    }
+    a{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+	}
+a:hover{
+    background-color:#6F9;
+	cursor:pointer;
+
+}
+</style>
+<h1>Admin Profile</h1>
+
+
+{% if photo=='no' %}
+    <p><a href="admin_photo">Upload Photo</a></p>
+{% else %}
+<img src="../static/photos/{{photo}}" width="200" height="200"/><br/>
+<br/>
+<p><a href="admin_change_photo">Change Photo</a></p>
+{% endif %}
+
+{% if kota %}
+
+     <h3>{{kota[0]}}</h3>
+
+      <p>Address:{{kota[1]}}</p>
+      <p>Contact No.:{{kota[2]}}</p>
+      <p>Email:{{kota[3]}}</p>
+
+       <form method="post" action="admin_pro1">
+          <input type="submit" style="background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;" name="B1" value="Edit"/>
+       </form>
+
+{% elif msg %}
+ <h3>{{msg}}</h3>
+{% endif %}
+
+
+{% endblock %}

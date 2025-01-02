@@ -1,0 +1,49 @@
+{% extends 'd_accountant.html' %}
+{% block m1 %}
+
+<style>
+    p{
+    color:black;
+    }
+    a{
+    background-color:#6C9;
+	color:#FFF;
+	border:1px solid #0CF;
+	border-radius:10px;
+	padding:6px;
+	font-size:16px;
+	margin:8px;
+	}
+a:hover{
+    background-color:#6F9;
+	cursor:pointer;
+
+}
+</style>
+<h1>Accountant Profile</h1>
+
+
+
+{% if kota %}
+{%for d in kota%}
+<table width="34%">
+
+
+        <img alt="No Photo" src="../static/photos/{{d[6]}}" width="200" height="200"/></td>
+
+
+
+            <p>Employee No.:{{d[0]}}</p>
+            <p><b>Name:{{d[1]}}</b></p>
+            <p><b>Designation:</b>{{d[2]}}</p>
+            <p><b>Contact No:</b>{{d[3]}}</p>
+            <p><b>Email:{{d[4]}}</b></p>
+</table>
+{% endfor %}
+
+{% elif msg %}
+ <h3>{{msg}}</h3>
+{% endif %}
+
+
+{% endblock %}
